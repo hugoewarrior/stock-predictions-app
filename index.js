@@ -47,8 +47,8 @@ async function fetchStockData() {
     loadingArea.style.display = 'flex'
     try {
         const stockData = await Promise.all(tickersArr.map(async (ticker) => {
-            const url = `https://polygon-api-worker.guil-9d2.workers.dev/?ticker=${ticker}&startDate=${dates.startDate}&endDate=${dates.endDate}`
-            const response = await fetch(url)
+            const newUrl = `https://poligon-worker.warriorsopenain-worker.workers.dev?ticker=${ticker}&startDate=${dates.startDate}&endDate=${dates.endDate}`
+            const response = await fetch(newUrl)
             if (!response.ok) {
                 const errMsg = await response.text()
                 throw new Error('Worker error: ' + errMsg)
@@ -82,7 +82,7 @@ async function fetchReport(data) {
     ]
     
     try {
-        const url = 'https://openai-api-worker.guil-9d2.workers.dev'
+        const url = 'https://openai-api-worker.warriorsopenain-worker.workers.dev/'
         
         const response = await fetch(url, {
             method: 'POST',
